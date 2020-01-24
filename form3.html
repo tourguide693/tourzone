@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <!-- PWA  -->
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+<link rel="manifest" href="./manifest.json">
+<link rel="mask-icon" href="./safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#00aba9">
+<meta name="theme-color" content="#ed0e42">
+    <title>form 3</title>
+    <style>
+      
+      
+      #map {
+        height: 400px;  
+        width: 90%;  
+       }
+     #map {
+  margin-top: 50px;
+ 
+  margin-right: 150px;
+  margin-left: 80px;
+}
+         #place{      
+              margin-top: 20px;
+ 
+  margin-right: 150px;
+  margin-left: 80px;
+     }
+        #button1{
+          margin-top: 20px;
+ 
+  margin-right: 130px;
+  margin-left: 80px;
+     }
+          #button2{
+          margin-top: 10px;
+ 
+  margin-right: 130px;
+  margin-left: 80px;
+     }
+      html, body {
+        height: 400px;
+        width: 100%;
+        padding: 0;
+      }
+    </style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </head>
+  <body>
+        
+     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color:#1F2AAF" width="30" height="30">
+            <a class="navbar-brand">TOUR GUIDE</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <ul class="navbar-nav mr-auto">
+                  <li class="nav-item dropdown">
+                         <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" ></a>
+       </li>
+       <li class="nav-item">
+        <a class="nav-link disabled"  tabindex="-1" aria-disabled="true">HELP</a>
+      </li>
+          </ul></nav>
+    <div id="map"></div>
+    <script>
+
+      function initMap() {
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 10,
+          center: {lat:  13.129371, lng:77.588038   }
+        });
+
+      
+        var labels = 'UABCDEFGHIJKLMNOPQRSTVWXYZ';
+
+        
+        var markers = locations.map(function(location, i) {
+          return new google.maps.Marker({
+            position: location,
+            label: labels[i % labels.length]
+          });
+        });
+        var markerCluster = new MarkerClusterer(map, markers,
+            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+      }
+      var locations = [
+        {lat: 13.129371, lng: 77.588038 },   
+        {lat: 13.010790, lng: 77.554886},
+        {lat: 13.359350, lng: 77.648970},
+      
+      ]
+    
+    </script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+    </script>
+    
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUVLVDzVTA5YLe3HjYdnDYzVlMpjwShgc&callback=initMap">
+    </script> 
+     <div="container" id="place" > MARKERS SHOWN HERE ARE OF PLACES:<div>
+   <p><button type="button" id="button1" class="btn btn-outline-info">A:-ORION</button><br>
+    <button type="button"  id="button2" class="btn btn-outline-info">B:-NANDI HILLS</button></p>
+     </div>
+  </body>
+</html>

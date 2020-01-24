@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>form2</title>
+    
+    <!-- PWA  -->
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+<link rel="manifest" href="./manifest.json">
+<link rel="mask-icon" href="./safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#00aba9">
+<meta name="theme-color" content="#ed0e42">
+
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+     
+      #map {
+         height: 400px;  
+        width: 90%;  
+       }
+     #map {
+  margin-top: 50px;
+ 
+  margin-right: 150px;
+  margin-left: 80px;
+}
+      #newlink{
+          margin-top: 50px;
+ 
+  margin-right: 130px;
+  margin-left: 100px;
+    }
+      #alone{
+             margin-top: 20px;
+ 
+     margin-right: 130px;
+     margin-left: 100px;
+    }
+      
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+  background-image: url('https://static.toiimg.com/photo/msid-66081026,width-96,height-65.cms');
+    background-repeat: no-repeat;
+   background-size:cover;
+}
+    </style>
+</style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  
+  </head>
+  <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color:#1F2AAF" >
+ <a class="navbar-brand">TOUR GUIDE</a>
+ <div class="collapse navbar-collapse" id="navbarSupportedContent">
+ <ul class="navbar-nav mr-auto">
+ <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" ></a>
+       </li>
+       <li class="nav-item">
+        <a class="nav-link disabled"  tabindex="-1" aria-disabled="true">HELP</a>
+      </li>
+          </ul>
+</nav>
+   <div="container">   <button id="alone" type="button" class="btn btn-outline-info">YOUR LOCATION</button></div>
+    <div id="map"></div>
+    
+    <script>
+     
+      var map, infoWindow;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 12
+        });
+        infoWindow = new google.maps.InfoWindow;
+
+       
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            infoWindow.open(map);
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+         
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
+    </script>
+    <a href="form3.html" class="btn btn-outline-info" id="newlink" role="button" aria-pressed="true"> Visit your nearest places</a>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUVLVDzVTA5YLe3HjYdnDYzVlMpjwShgc&callback=initMap">
+    </script>
+  </body>
+</html>
